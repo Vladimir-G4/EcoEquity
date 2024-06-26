@@ -1,0 +1,52 @@
+.tab-container {
+  width: 80%;
+  margin: auto;
+}
+
+
+.tab-buttons {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+.tab-button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+
+.tab-button:hover {
+  background-color: #ddd;
+}
+
+
+.tab-button.active {
+  background-color: #ccc;
+}
+
+
+.tab-content {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+
+.tab-content.active {
+  display: block;
+}
+
+.green-btn {
+  background-color: #ADC178;
+}
+
+.green-btn:hover {
+  background-color: #8E9A5C;
+}
