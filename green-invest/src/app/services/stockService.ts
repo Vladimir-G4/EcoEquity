@@ -258,7 +258,7 @@ export class StockService {
         return JSON.stringify(this.user_stocks);
     }
 
-    // return amount of money user can spend
+    // return amount of money user can spend, rounded to 2 decimals
     public getUserMoney(): string {
         return JSON.stringify(this.user_spending.toFixed(2));
     }
@@ -300,12 +300,34 @@ export class StockService {
         return result;
     }
 
-    // update price of stocks in user's portfolio
-    // update user's scores
-    // TODO
-    public updatePortfolio(): string {
+    // randomly update the stock price
+    // TODO: have it affected by risk
+    simulateStockPrice(currentPrice: number): number {
+        // Define parameters for price change simulation
+        const smallChangeRange = 0.15; // Small percentage change range (+/- 1%)
+        const largeChangeProbability = 0.1;
 
+
+        const smallChange = (Math.random() - 0.5) * 2 * smallChangeRange;
+
+
+        if (Math.random() < largeChangeProbability) {
+            const largeChange = (Math.random() - 0.5) * 2 * smallChangeRange * 5;
+            return currentPrice * (1 + largeChange);
+        } else {
+            return currentPrice * (1 + smallChange);
+        }
+    }
+
+    // TODO: write functions to calculate sustainability score
+
+    // update price of in user's portfolio
+    // update user's scores
+    // TODO: update sustainability score
+    public updatePortfolio(): string {
+        this.user_stocks.forEach((stock) => stock.price = this.simulateStockPrice(stock.price))
         this.user_port = this.updateValue();
+
         return JSON.stringify(this.user_stocks)
     }
 
