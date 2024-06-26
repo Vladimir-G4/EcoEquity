@@ -28,6 +28,8 @@ export class StockService {
     private LEADERBOARD_KEY: string = 'leaderboard'
     private user_stocks: UserStock[] = [];
     private user_spending: number = 20000;
+    private user_sus: number = 0;
+    private user_port: number = 0;
 
     constructor() {
         this.init();
@@ -253,12 +255,22 @@ export class StockService {
 
     // return user's stocks 
     public getUserStocks(): string {
-        return JSON.stringify(this.user_stocks)
+        return JSON.stringify(this.user_stocks);
     }
 
     // return amount of money user can spend
     public getUserMoney(): string {
-        return JSON.stringify(this.user_spending)
+        return JSON.stringify(this.user_spending.toFixed(2));
+    }
+
+    // return portfolio value
+    public getUserPortfolioValue(): string {
+        return JSON.stringify(this.user_port);
+    }
+
+    // return sustainability score
+    public getUserSusScore(): string {
+        return JSON.stringify(this.user_sus);
     }
 
     // select 5 random stocks and remove from storage so no repeats, return as JSON string
@@ -274,23 +286,58 @@ export class StockService {
     }
 
     // takes in JSON string of a stock and adds to user's portfolio
-    // TODO: adjust money
     public addStockToPortfolio(stock: string, quantity: number): string {
         let stock_to_add: Stock = JSON.parse(stock);
+        this.user_spending -= (quantity * stock_to_add.price)
         this.user_stocks.push({ ticker: stock_to_add.ticker, quantity: quantity, price: stock_to_add.price });
         return JSON.stringify(this.user_stocks);
     }
 
+    // calculate new portfolio value
+    private updateValue(): number {
+        let result = 0;
+        this.user_stocks.forEach((stock) => result += stock.price);
+        return result;
+    }
+
     // update price of stocks in user's portfolio
+    // update user's scores
     // TODO
     public updatePortfolio(): string {
+
+        this.user_port = this.updateValue();
         return JSON.stringify(this.user_stocks)
     }
 
     // sell a stock with quantity 
-    // TODO
     public sellStock(stock_ticker: string, quantity: number): string {
-        return JSON.stringify(this.user_stocks)
+        let stock_string = JSON.parse(stock_ticker);
+        let current = 0;
+        let found = false;
+
+        // for-of loop to iterate through the array
+        for (let stock of this.user_stocks) {
+            // if searchElement matches to the current element, print the index
+            if (stock.ticker === stock_string) {
+                found = true;
+            }
+            if (!found) {
+                // increase the current by 1.
+                current++;
+            }
+        }
+
+        let user_stock = this.user_stocks[current];
+        this.user_spending += quantity * user_stock.price;
+        if (quantity < user_stock.quantity) {
+            user_stock.quantity -= quantity;
+        }
+        else {
+            if (quantity > user_stock.quantity) console.error("um");
+            this.user_stocks.splice(current, 1)
+        }
+
+        return JSON.stringify(this.user_stocks);
     }
 
     // replay
