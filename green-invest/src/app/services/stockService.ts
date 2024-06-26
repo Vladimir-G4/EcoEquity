@@ -1,3 +1,4 @@
+import { NumberSymbol } from '@angular/common';
 import { Injectable } from '@angular/core';
 
 interface Stock {
@@ -11,6 +12,12 @@ interface Stock {
     risk: string
 }
 
+interface UserStock {
+    ticker: string,
+    quantity: number,
+    price: number
+}
+
 
 @Injectable({
     providedIn: 'root'
@@ -18,11 +25,17 @@ interface Stock {
 export class StockService {
     private WEEK: number = 0;
     private STOCK_KEY: string = 'stocks';
+    private LEADERBOARD_KEY: string = 'leaderboard'
+    private user_stocks: UserStock[] = [];
+    private user_spending: number = 20000;
+    private user_sus: number = 0;
+    private user_port: number = 0;
 
     constructor() {
         this.init();
     }
 
+    // initialize stocks into local storage
     private init(): void {
         if (!localStorage.getItem(this.STOCK_KEY)) {
             const defaultStocks: Stock[] = [
@@ -234,6 +247,107 @@ export class StockService {
         }
     }
 
+    // return all stocks
+    private getAllStocks(): Stock[] {
+        const stocks = localStorage.getItem(this.STOCK_KEY);
+        return stocks ? JSON.parse(stocks) : [];
+    }
+
+    // return user's stocks 
+    public getUserStocks(): string {
+        return JSON.stringify(this.user_stocks);
+    }
+
+    // return amount of money user can spend
+    public getUserMoney(): string {
+        return JSON.stringify(this.user_spending.toFixed(2));
+    }
+
+    // return portfolio value
+    public getUserPortfolioValue(): string {
+        return JSON.stringify(this.user_port);
+    }
+
+    // return sustainability score
+    public getUserSusScore(): string {
+        return JSON.stringify(this.user_sus);
+    }
+
+    // select 5 random stocks and remove from storage so no repeats, return as JSON string
+    public getRandomStocks(): string {
+        const stocks = this.getAllStocks();
+        for (let i = 0; i < 5; i++) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [stocks[i], stocks[j]] = [stocks[j], stocks[i]];
+        }
+        let return_stocks: Stock[] = stocks.slice(0, 5);
+        localStorage.setItem(this.STOCK_KEY, JSON.stringify(stocks.slice(5, stocks.length)));
+        return JSON.stringify(return_stocks);
+    }
+
+    // takes in JSON string of a stock and adds to user's portfolio
+    public addStockToPortfolio(stock: string, quantity: number): string {
+        let stock_to_add: Stock = JSON.parse(stock);
+        this.user_spending -= (quantity * stock_to_add.price)
+        this.user_stocks.push({ ticker: stock_to_add.ticker, quantity: quantity, price: stock_to_add.price });
+        return JSON.stringify(this.user_stocks);
+    }
+
+    // calculate new portfolio value
+    private updateValue(): number {
+        let result = 0;
+        this.user_stocks.forEach((stock) => result += stock.price);
+        return result;
+    }
+
+    // update price of stocks in user's portfolio
+    // update user's scores
+    // TODO
+    public updatePortfolio(): string {
+
+        this.user_port = this.updateValue();
+        return JSON.stringify(this.user_stocks)
+    }
+
+    // sell a stock with quantity 
+    public sellStock(stock_ticker: string, quantity: number): string {
+        let stock_string = JSON.parse(stock_ticker);
+        let current = 0;
+        let found = false;
+
+        // for-of loop to iterate through the array
+        for (let stock of this.user_stocks) {
+            // if searchElement matches to the current element, print the index
+            if (stock.ticker === stock_string) {
+                found = true;
+            }
+            if (!found) {
+                // increase the current by 1.
+                current++;
+            }
+        }
+
+        let user_stock = this.user_stocks[current];
+        this.user_spending += quantity * user_stock.price;
+        if (quantity < user_stock.quantity) {
+            user_stock.quantity -= quantity;
+        }
+        else {
+            if (quantity > user_stock.quantity) console.error("um");
+            this.user_stocks.splice(current, 1)
+        }
+
+        return JSON.stringify(this.user_stocks);
+    }
+
+    // replay
+    public replay(): void {
+        localStorage.clear;
+        this.init()
+        this.user_stocks = [];
+        this.user_spending = 20000;
+        this.WEEK = 0;
+    }
 
 
 }
