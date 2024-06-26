@@ -7,8 +7,12 @@
 
 
 h1 {
-    color: #6c584c;
-    ;
+  color: #6c584c;
+  font-size: 3.5em; 
+  font-weight: bold; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px; 
+  margin-top: 20px;
 }
 
 .logo {
@@ -33,35 +37,38 @@ h1 {
   }
 
 .green-btn {
-    background-color: #ADC178;
-    color: #f0ead2;
-    width: 100%;
-    height: 150px;
-    align-items: center;
-    font-size: 50px;
-    transition: transform 0.2s ease-in-out;
+  background-color: #ADC178;
+  color: #f0ead2;
+  width: 100%;
+  height: 150px;
+  font-size: 36px; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+  border: none;
+  border-radius: 10px; 
+  transition: background-color 0.3s, transform 0.2s; 
 }
 
 .green-btn:hover {
-    background-color: #a98467;
-    transform: scale(1.03);
-    transition: 0.2s ease-in;
-    border: 30px;
+  background-color: #a98467; 
+  transform: scale(1.03); 
 }
 
+
 .btn-secondary {
-    background-color: #a98467;
-    color: #f0ead2;
-    width: 100%;
-    height: 100px;
-    align-items: center;
-    font-size: 50px;
-    border: none;
-    transition: transform 0.2s ease-in-out;
+  background-color: #a98467;
+  color: #f0ead2;
+  width: 100%;
+  height: 100px;
+  font-size: 28px; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+  border: none;
+  border-radius: 10px; 
+  transition: background-color 0.3s, transform 0.2s; 
 }
 
 .btn-secondary:hover {
-    transform: scale(1.01);
-    transition: 0.1s ease-in;
-    border: #6C584C;
+  background-color: #8e6e56;
+  transform: scale(1.05);
 }
