@@ -1,0 +1,21 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0.5rem;
+    width: 42em;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.green-btn {
+    background-color: #ADC178;
+}
+
+.green-btn:hover {
+    background-color: #8E9A5C;
+}

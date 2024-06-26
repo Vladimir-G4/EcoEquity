@@ -5,8 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 export const routes: Routes = [
-    { path: 'invest', component: InvestComponent },
     { path: '', component: HomeComponent },
+    { path: 'invest', component: InvestComponent },
     { path: 'learn', component: LearnComponent },
     { path: 'leaderboard', component: LeaderboardComponent }
 ];

@@ -1,13 +1,14 @@
-<div class="text-center">
-    <img src="../../../public/logo_transparent.png" alt="Green Invest" class="img-fluid">
+<header class="text-center">
+    <img src="images/logo.png" alt="Green Invest" class="logo">
     <h1>Green Invest</h1>
     <p>Empower your portfolio with sustainability. Learn, invest, and grow responsibly with Green Invest.</p>
+</header>
+<div class="text-center d-flex flex-column mt-5">
+    <button type="button" class="btn green-btn mb-3" [routerLink]="'/invest'">🕹️ Invest</button>
+    <button type="button" class="btn green-btn mb-3" [routerLink]="'/learn'">📚 Learn</button>
+    <button type="button" class="btn btn-secondary mb-3" [routerLink]="'/leaderboard'">🏆 Leaderboard</button>
 </div>
-<div class="text-center d-flex flex-column">
-    <button type="button" class="btn btn-primary mb-2" routerLink="/invest">Invest</button>
-    <button type="button" class="btn btn-primary mb-2" routerLink="/learn">Learn</button>
-    <button type="button" class="btn btn-secondary mb-2" routerLink="/leaderboard">Leaderboard</button>
-</div>
-<div class="text-center footer">
-    <i>© Green Invest 2024</i>
-</div>
+<footer class="text-center d-flex flex-column footer">
+    <i>🪴</i>
+    <i>© 2024 Green Invest</i>
+</footer>
