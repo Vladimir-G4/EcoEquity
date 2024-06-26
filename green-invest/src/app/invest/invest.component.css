@@ -1,36 +1,108 @@
-<div>
-    <header class="header">
-        <div class="header-left">
-            <span class="sustainability-score">Sustainability Score: A-</span>
-        </div>
-        <div class="header-center">
-            <span class="money-remaining">$100000 Remaining</span>
-        </div>
-        <div class="header-right">
-            <img src="https://cdn-icons-png.flaticon.com/512/3150/3150115.png" alt="Leaderboard Icon" class="leaderboard-icon">
-        </div>
-    </header>
+body {
+    background-color: #F0EAD2;
+    color: #6C584C;
+    margin: 0;
+    padding: 0;
+}
 
-    <div class="card">
-        <h2 class="company-name">GRNEN (Green Energy Solutions Inc.)</h2>
-        <p class="stock-price">Stock Price: $45.80</p>
-        <p class="esg-rating">ESG Rating: A</p>
-        <p class="pe-ratio">P/E Ratio: 28</p>
-        <p class="risk-rating">Risk Rating: Medium</p>
-        <p class="description">
-            Description: Specializes in renewable energy technologies, including solar, wind, and hydroelectric power. The company is committed to providing sustainable and clean energy solutions to reduce global carbon footprints.
-        </p>
-        <p class="performance">
-            Performance: GRNEN has seen steady growth over the past year, driven by increasing demand for renewable energy sources. The company recently signed several large contracts, boosting its revenue and market share.
-        </p>
-        <div class="buttons">
-            <input type="number" class="share-input" placeholder="Number of shares" [(ngModel)]="numshares">
-            <button class="purchase-btn">Purchase</button>
-            <button class="skip-btn">Skip</button>
-        </div>
-        <div class="total-price-container">
-            Total Price: <span class="total-price">{{calctotal()}}</span>
-        </div>
-    
-    </div>
-</div>
+.header {
+    background-color: #DDE5B6;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.sustainability-score,
+.money-remaining {
+    margin-right: 10px;
+}
+
+.leaderboard-icon {
+    width: 40px;
+    height: auto;
+}
+
+.card {
+    background-color: #ADC178;
+    color: #6C584C;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center
+}
+
+.company-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+.stock-price,
+.esg-rating,
+.pe-ratio,
+.risk-rating {
+    margin-bottom: 5px;
+}
+
+.description {
+    margin-bottom: 10px;
+}
+
+.performance {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.purchase-btn,
+.skip-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.purchase-btn {
+    background-color: #A98467;
+    color: white;
+    border: 1px solid #6C584C;
+}
+
+.skip-btn {
+    background-color: #F0EAD2;
+    color: #A98467;
+    border: 1px solid #6C584C;
+}
+
+.purchase-btn:hover,
+.skip-btn:hover {
+    opacity: 0.8;
+}
+
+.share-input{
+    width: 160px;
+}
+
+.total-price-container{
+    width: 100px;
+    margin-top: 10px;
+}
