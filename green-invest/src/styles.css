@@ -39,4 +39,9 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    background-color: #F0EAD2;
+}
+
+p {
+    color: #A98467;
 }
