@@ -1,3 +1,36 @@
 <div>
+    <header class="header">
+        <div class="header-left">
+            <span class="sustainability-score">Sustainability Score: A-</span>
+        </div>
+        <div class="header-center">
+            <span class="money-remaining">$100000 Remaining</span>
+        </div>
+        <div class="header-right">
+            <img src="https://cdn-icons-png.flaticon.com/512/3150/3150115.png" alt="Leaderboard Icon" class="leaderboard-icon">
+        </div>
+    </header>
 
+    <div class="card">
+        <h2 class="company-name">GRNEN (Green Energy Solutions Inc.)</h2>
+        <p class="stock-price">Stock Price: $45.80</p>
+        <p class="esg-rating">ESG Rating: A</p>
+        <p class="pe-ratio">P/E Ratio: 28</p>
+        <p class="risk-rating">Risk Rating: Medium</p>
+        <p class="description">
+            Description: Specializes in renewable energy technologies, including solar, wind, and hydroelectric power. The company is committed to providing sustainable and clean energy solutions to reduce global carbon footprints.
+        </p>
+        <p class="performance">
+            Performance: GRNEN has seen steady growth over the past year, driven by increasing demand for renewable energy sources. The company recently signed several large contracts, boosting its revenue and market share.
+        </p>
+        <div class="buttons">
+            <input type="number" class="share-input" placeholder="Number of shares" [(ngModel)]="numshares">
+            <button class="purchase-btn">Purchase</button>
+            <button class="skip-btn">Skip</button>
+        </div>
+        <div class="total-price-container">
+            Total Price: <span class="total-price">{{calctotal()}}</span>
+        </div>
+    
+    </div>
 </div>
