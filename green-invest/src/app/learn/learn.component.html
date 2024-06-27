@@ -1,3 +1,84 @@
 <div>
-
+  <div class="title">
+    <h1 id="title">Learning</h1>
+  </div>
+  <div class="tab-container">
+    <div class="tab-buttons">
+      <button class="tab-button" (click)="openTab('Tab1')">Learning Overview</button>
+      <button class="tab-button" (click)="openTab('Tab2')">Investing Basics</button>
+      <button class="tab-button" (click)="openTab('Tab3')">ESG Integration</button>
+      <button class="tab-button" (click)="openTab('Tab4')">Sustainable Investments</button>
+      <button class="tab-button" (click)="openTab('Tab5')">Investment Restrictions</button>
+    </div>
+    <br>
+    <div class="tab">
+      <div id="Tab1" class="tab-content" [ngClass]="{'active': activeTab === 'Tab1'}">
+        <h3>Learning Overview</h3>
+        <p>Hello Green Investor! If you want to learn about Prudential's Responsible Investing Policy
+          before diving into
+          investing, you've come to the right place!
+          Navigate to Investing Basics, ESG Integration, Climate Action, Sustainable Investments, and Investment
+          Restrictions to discover and review key ideas. If you wish to explore Prudential's Investing policies further,
+          please refer to the following link:
+        </p>
+        <a href="https://www.prudentialesg.com/sustainability/default.aspx" target="_blank"><button
+            class="btn blue-btn">More Information</button></a>
+      </div>
+      <div id="Tab2" class="tab-content" [ngClass]="{'active': activeTab === 'Tab2'}">
+        <h2>Investing Basics</h2>
+        <p>The key is to buy low and sell high! Try to buy stocks that, based on trends displayed in graphs, you expect
+          will go up in price after you buy them.
+          You also want to develop a diverse portfolio. This means that you should aim to have investments that are in
+          unrelated business areas, as well as a good mix of investment types
+          (stocks/bonds). Finally, here at Prudential, we want our investments to be sustainable, meaning they have
+          Environmental, Social, and/or Governance benefits, forming the acronym
+          ESG. To learn more about ESG Integration and the different categories, navigate over to the ESG Integration
+          tab.
+        </p>
+      </div>
+      <div id="Tab3" class="tab-content" [ngClass]="{'active': activeTab === 'Tab3'}">
+        <h2>ESG Integration</h2>
+        <p>ESG stands for Environmental, Social, and Governance. Environmental refers to mitigating climate change and
+          harm
+          to the environment, Social refers to ensuring financial security for all and taking care of employees, and
+          Governance refers to always driving company actions
+          with Prudential's core values. Whenever possible, ESG factors should be considered when determining where to
+          invest our money and how to analyze security, since ESG factors can heavily affect asset returns in the long
+          run.
+          Though return on investment is important, Prudential separates itself from the rest by also considering ESG
+          factors to be vital.
+        </p>
+      </div>
+      <div id="Tab4" class="tab-content" [ngClass]="{'active': activeTab === 'Tab4'}">
+        <h2>Sustainable Investments</h2>
+        <p>Here are the types of sustainable investments, as well as examples of each type:</p>
+        <ol>
+          <li>Externally labeled ESG debt: Green bonds, Social bonds, Sustainability bonds, Sustainability-linked bonds
+          </li>
+          <li>Social Investments: Basic infrastructure, essential services, affordable housing, financial inclusion,
+            food
+            security and sustainable food systems, employment generation.</li>
+        </ol>
+      </div>
+      <div id="Tab5" class="tab-content" [ngClass]="{'active': activeTab === 'Tab5'}">
+        <h2>Sustainable Investments</h2>
+        <p>In order to protect and further Prudential's ESG integration and investment policies, please refrain from
+          investing in the following areas:</p>
+        <ol>
+          <li>Thermal Coal: Investments in mining/utility companies that generate more than 25% of their revenue from
+            thermal coal. Companies with strategies for transitioning into low carbon, as well as the green bonds of the
+            restricted companies, may be granted an exception.</li>
+          <li>Controversial Weapons: Companies that directly manufacture and produce cluster munitions, anti-personnel
+            mines, biological weapons, or chemical weapons.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="text-center d-flex flex-column mt-5">
+    <button type="button" class="btn green-btn mb-3" [routerLink]="''">🏠 Home</button>
+  </div>
 </div>
+<footer class="text-center d-flex flex-column footer">
+  <i>🪴</i>
+  <i>© 2024 Green Invest</i>
+</footer>
