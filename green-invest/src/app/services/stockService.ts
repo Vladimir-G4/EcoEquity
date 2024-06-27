@@ -442,7 +442,23 @@ export class StockService {
             default: result *= 1; // Default score for unrecognized grades 
                 break;
         }
-        return (Math.round(result));
+
+        // Ensure result is between 0 and 1
+        result = Math.min(Math.max(result, 0), 1);
+
+        // Scale to 0 - 100 range
+        return Math.round(result * 100);
+    }
+
+    // code to run between weeks
+    private updateWeek(): (string | number) {
+        if (this.WEEK < 4) {
+            this.updatePortfolio;
+            return this.getUserStocks();
+        }
+        else {
+            return this.getFinalScore();
+        }
     }
 
     // replay
