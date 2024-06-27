@@ -18,6 +18,7 @@ interface UserStock {
     price: number
 }
 
+type StockDictionary = { [key: string]: [string, number] }
 
 @Injectable({
     providedIn: 'root'
@@ -25,11 +26,13 @@ interface UserStock {
 export class StockService {
     private WEEK: number = 0;
     private STOCK_KEY: string = 'stocks';
+    private SUSTAIN_KEY: string = 'sustainability'
     private LEADERBOARD_KEY: string = 'leaderboard'
     private user_stocks: UserStock[] = [];
     private user_spending: number = 20000;
-    private user_sus: number = 0;
+    private user_sus: string = 'N/A';
     private user_port: number = 0;
+    private stockData: StockDictionary = {}
 
     constructor() {
         this.init();
@@ -307,9 +310,7 @@ export class StockService {
         const smallChangeRange = 0.15; // Small percentage change range (+/- 1%)
         const largeChangeProbability = 0.1;
 
-
         const smallChange = (Math.random() - 0.5) * 2 * smallChangeRange;
-
 
         if (Math.random() < largeChangeProbability) {
             const largeChange = (Math.random() - 0.5) * 2 * smallChangeRange * 5;
@@ -319,14 +320,49 @@ export class StockService {
         }
     }
 
-    // TODO: write functions to calculate sustainability score
+    // calculate sustainability score
+    calculateSustainabilityScore(stockDict: StockDictionary): string {
+        let totalScore = 0; let totalShares = 0; // Iterate through each stock in the dictionary 
+        for (const stockName in stockDict) {
+            if (stockDict.hasOwnProperty(stockName)) {
+                const [sustainabilityGrade, numberOfShares] = stockDict[stockName];
+                // Calculate score contribution based on sustainability grade 
+                let gradeScore = 0; switch (sustainabilityGrade) {
+                    case 'A+': gradeScore = 10;
+                        break;
+                    case 'A': gradeScore = 8;
+                        break;
+                    case 'B': gradeScore = 6;
+                        break;
+                    case 'C': gradeScore = 4;
+                        break;
+                    case 'D': gradeScore = 2;
+                        break;
+                    default: gradeScore = 0; // Default score for unrecognized grades 
+                        break;
+                }
+                // Add weighted score based on number of shares
+                totalScore += gradeScore * numberOfShares; totalShares += numberOfShares; // Sum total shares 
+            }
+        } // Calculate average score based on total shares 
+        let averageScore = 0;
+        if (totalShares > 0) { averageScore = totalScore / totalShares; }
+        // Determine grade based on average score 
+        if (averageScore >= 9.5) { return 'A+'; }
+        else if (averageScore >= 8.5) { return 'A'; }
+        else if (averageScore >= 7.5) { return 'B'; }
+        else if (averageScore >= 6.5) { return 'C'; }
+        else if (averageScore >= 5.5) { return 'D'; }
+        else { return 'F'; }
+    }
 
     // update price of in user's portfolio
     // update user's scores
-    // TODO: update sustainability score
+    // returns the updated list of stocks
     public updatePortfolio(): string {
         this.user_stocks.forEach((stock) => stock.price = this.simulateStockPrice(stock.price))
         this.user_port = this.updateValue();
+        this.user_sus = this.calculateSustainabilityScore(this.stockData);
 
         return JSON.stringify(this.user_stocks)
     }
@@ -360,6 +396,29 @@ export class StockService {
         }
 
         return JSON.stringify(this.user_stocks);
+    }
+
+    // get leaderboard list
+    private getLeaderboardList(): [string, number][] {
+        const leaderboard = localStorage.getItem(this.LEADERBOARD_KEY);
+        return leaderboard ? JSON.parse(leaderboard) : [];
+    }
+
+    private setLeaderboardList(leaderboard: [string, number][]): void {
+        localStorage.setItem(this.LEADERBOARD_KEY, JSON.stringify(leaderboard));
+    }
+
+    // add user to leaderboard
+    public addToLeaderboard(name: string, score: number) {
+        const leaderboard = this.getLeaderboardList();
+        leaderboard.push([name, score]);
+        this.setLeaderboardList(leaderboard);
+    }
+
+    // return 
+    public getLeaderboard(limit: number = 8): [string, number][] {
+        const leaderboard = this.getLeaderboardList();
+        return leaderboard.sort((a, b) => b[1] - a[1]).slice(0, limit);
     }
 
     // replay
