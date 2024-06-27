@@ -1,8 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LeaderboardService } from '../services/leaderboard.service';
+
+interface LeaderboardEntry {
+  rank: number;
+  name: string;
+  score: number;
+}
 
 @Component({
   selector: 'app-leaderboard',
@@ -13,12 +19,22 @@ import { LeaderboardService } from '../services/leaderboard.service';
 })
 export class LeaderboardComponent {
 
-  public leaderboardData: any[] | null = null;
+  public leaderboardData: LeaderboardEntry[] = [];
 
-  constructor(private leaderboardService: LeaderboardService) {
-    this.leaderboardService.getLeaderboard().then((leaderboard) => {
-      this.leaderboardData = leaderboard;
-    })
+  constructor(private http: HttpClient, private leaderboardService: LeaderboardService) {
+    this.fetchLeaderboardData();
+  }
+
+  fetchLeaderboardData() {
+    const url = 'assets/leaderboard.json';
+    this.http.get<LeaderboardEntry[]>(url).subscribe(
+      (data: LeaderboardEntry[]) => {
+        this.leaderboardData = data;
+      },
+      (error: any) => {
+        console.error('Error fetching leaderboard data:', error);
+      }
+    );
   }
 
 }
