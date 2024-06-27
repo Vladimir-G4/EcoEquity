@@ -15,7 +15,7 @@ body {
 }
 
 html, body {
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -53,4 +53,66 @@ html, body {
 main {
   overflow-y: auto; 
   padding: 5px;
+}
+
+.green-btn {
+    background-color: #00b894;
+    color: white;
+    width: 20rem;
+    border: none;
+    padding: 10px 80px;
+    border-radius: 5px !important;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+.green-btn:hover {
+    background-color: #00a88b;
+}
+
+.gray-btn {
+    background-color: #6c757d;
+    color: white;
+    width: 20rem;
+    border: none;
+    padding: 10px 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+.gray-btn:hover {
+    background-color: #495057;
+}
+
+.svg-image {
+    max-width: 50px; /* Adjust maximum width as needed */
+    max-height: 50px; /* Adjust maximum height as needed */
+    vertical-align: middle; /* Align SVG vertically with text */
+    margin-right: 10px; /* Add margin to separate from text */
+}
+
+.raised-box {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Adjust shadow for 3D effect */
+    padding: 15px; /* Adjust padding as needed */
+    margin-bottom: 20px; /* Add margin for spacing */
+}
+
+.svg-image {
+    max-width: 50px; /* Adjust maximum width as needed */
+    max-height: 50px; /* Adjust maximum height as needed */
+    vertical-align: middle; /* Align SVG vertically with text */
+    margin-left: 10px; /* Add margin to separate from text */
+}
+
+.dollar-amount {
+    font-size: 1.2rem; /* Adjust font size for dollar amount */
+    font-weight: bold; /* Ensure dollar amount text is bold */
+    margin-bottom: 0; /* Remove default margin */
 }

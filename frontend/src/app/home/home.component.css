@@ -1,20 +1,3 @@
-.green-btn {
-    background-color: #00b894;
-    color: white;
-    width: 20rem;
-    border: none;
-    padding: 10px 80px;
-    border-radius: 5px !important;
-    cursor: pointer;
-    margin: 10px auto;
-    display: block;
-    text-align: center;
-}
-
-.green-btn:hover {
-    background-color: #00a88b;
-}
-
 .quote-container {
     margin: 0 auto;
     display: block;
@@ -28,6 +11,6 @@
 
 @media (min-width: 768px) {
     .footer {
-        margin-top: 13rem;
+        margin-top: 2rem;
     }
 }

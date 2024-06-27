@@ -1,74 +1,94 @@
 <div class="container">
-    <header class="text-center">
-        <img src="assets/images/logo_transparent.png" alt="EcoEquity Logo" class="logo">
-        <h1 class="header-one mt-2">📚 Learn</h1>
-    </header>
-    <div class="d-flex flex-column text-center mt-5 mb-5">
-        <div class="text-center">
-            <div class="row centered">
-              <div class="col-lg-10 col-md-9 col-sm-12">
-                <div class="learn-div text-center">
-                  <ul class="nav nav-tabs sm justify-content-center" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link" (click)="openTab('Tab1')" [class.active]="activeTab === 'Tab1'">Learning Overview</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)="openTab('Tab2')" [class.active]="activeTab === 'Tab2'">Investing Basics</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)="openTab('Tab3')" [class.active]="activeTab === 'Tab3'">ESG Integration</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)="openTab('Tab4')" [class.active]="activeTab === 'Tab4'">Sustainable Investments</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)="openTab('Tab5')" [class.active]="activeTab === 'Tab5'">Investment Restrictions</a>
-                    </li>
-                  </ul>
-                  
-                  <div class="tab-content">
-                    <div id="Tab1" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab1'}">
-                        <h3>Learning Overview</h3>
-                        <p class="mt-1 padding-3">Welcome, investor! If you're eager to understand Responsible Investing Policies before diving into the market, you're in the right place. Explore essential topics such as Investing Basics, ESG Integration, Climate Action, Sustainable Investments, and Investment Restrictions to uncover key insights. For a deeper dive into Prudential's investment policies, check out:</p>
-                        <a href="https://www.prudentialesg.com/sustainability/default.aspx" target="_blank" class="btn btn-primary mt-3">More Information</a>
-                    </div>
-                    
-                    <div id="Tab2" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab2'}">
-                        <h3>Investing Basics</h3>
-                        <p class="mt-1 padding-3">Successful investing involves buying low and selling high. Look for stocks with promising growth potential based on market trends. Diversify your portfolio across different business sectors and investment types (stocks/bonds). At Prudential, we prioritize sustainable investments that deliver Environmental, Social, and Governance (ESG) benefits. Learn more about ESG Integration and its categories in the dedicated ESG Integration tab.</p>
-                    </div>
-                    
-                    <div id="Tab3" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab3'}">
-                        <h3>ESG Integration</h3>
-                        <p class="mt-1 padding-3">ESG (Environmental, Social, Governance) factors are crucial in investment decisions. Environmental considerations focus on climate change mitigation and environmental impact. Social factors ensure financial security and employee welfare. Governance emphasizes corporate responsibility and ethical behavior. Prudential integrates ESG factors into our investment strategies to enhance long-term asset returns and uphold our core values.</p>
-                    </div>
-                    
-                    <div id="Tab4" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab4'}">
-                        <h3>Sustainable Investments</h3>
-                        <p class="mt-1 padding-3">Explore various types of sustainable investments:</p>
-                        <ul>
-                          <li>ESG-labeled debt: Green bonds, Social bonds, Sustainability bonds, Sustainability-linked bonds</li>
-                          <li>Social Investments: Infrastructure, essential services, affordable housing, financial inclusion, sustainable food systems, employment generation</li>
-                        </ul>
-                    </div>
-                    
-                    <div id="Tab5" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab5'}">
-                        <h3>Investment Restrictions</h3>
-                        <p class="mt-1 padding-3">To uphold proper ESG integration and investment policies, avoid investing in:</p>
-                        <ul>
-                          <li>Thermal Coal: Companies generating more than 25% of revenue from thermal coal</li>
-                          <li>Controversial Weapons: Manufacturers of cluster munitions, anti-personnel mines, biological, or chemical weapons</li>
-                        </ul>
-                    </div>
-                  </div>
-                </div>
+  <header class="text-center">
+    <img src="assets/images/logo_transparent.png" alt="EcoEquity Logo" class="logo">
+    <h1 class="header-one mt-2">📚 Learn</h1>
+  </header>
+  <div class="d-flex flex-column text-center mt-5 mb-5">
+    <div class="text-center">
+      <div class="row centered">
+        <div class="col-lg-10 col-md-9 col-sm-12">
+          <div class="learn-div text-center">
+            <ul class="nav nav-tabs sm justify-content-center" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link" (click)="openTab('Tab1')" [class.active]="activeTab === 'Tab1'">Learning
+                  Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="openTab('Tab2')" [class.active]="activeTab === 'Tab2'">Investing Basics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="openTab('Tab3')" [class.active]="activeTab === 'Tab3'">ESG Integration</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="openTab('Tab4')" [class.active]="activeTab === 'Tab4'">Sustainable
+                  Investments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="openTab('Tab5')" [class.active]="activeTab === 'Tab5'">Investment
+                  Restrictions</a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="Tab1" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab1'}">
+                <h3>Learning Overview</h3>
+                <p class="mt-1 padding-3">Welcome, investor! If you're eager to understand Responsible Investing
+                  Policies before diving into the market, you're in the right place. Explore essential topics such as
+                  Investing Basics, ESG Integration, Climate Action, Sustainable Investments, and Investment
+                  Restrictions to uncover key insights. For a deeper dive into Prudential's investment policies, check
+                  out:</p>
+                <a href="https://www.prudentialesg.com/sustainability/default.aspx" target="_blank"
+                  class="btn btn-primary mt-3">More Information</a>
+              </div>
+
+              <div id="Tab2" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab2'}">
+                <h3>Investing Basics</h3>
+                <p class="mt-1 padding-3">Successful investing involves buying low and selling high. Look for stocks
+                  with promising growth potential based on market trends. Diversify your portfolio across different
+                  business sectors and investment types (stocks/bonds). At Prudential, we prioritize sustainable
+                  investments that deliver Environmental, Social, and Governance (ESG) benefits. Learn more about ESG
+                  Integration and its categories in the dedicated ESG Integration tab.</p>
+              </div>
+
+              <div id="Tab3" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab3'}">
+                <h3>ESG Integration</h3>
+                <p class="mt-1 padding-3">ESG (Environmental, Social, Governance) factors are crucial in investment
+                  decisions. Environmental considerations focus on climate change mitigation and environmental impact.
+                  Social factors ensure financial security and employee welfare. Governance emphasizes corporate
+                  responsibility and ethical behavior. Prudential integrates ESG factors into our investment strategies
+                  to enhance long-term asset returns and uphold our core values.</p>
+              </div>
+
+              <div id="Tab4" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab4'}">
+                <h3>Sustainable Investments</h3>
+                <p class="mt-1 padding-3">Explore various types of sustainable investments:</p>
+                <ul>
+                  <li>ESG-labeled debt: Green bonds, Social bonds, Sustainability bonds, Sustainability-linked bonds
+                  </li>
+                  <li>Social Investments: Infrastructure, essential services, affordable housing, financial inclusion,
+                    sustainable food systems, employment generation</li>
+                </ul>
+              </div>
+
+              <div id="Tab5" class="tab-pane" [ngClass]="{'active': activeTab === 'Tab5'}">
+                <h3>Investment Restrictions</h3>
+                <p class="mt-1 padding-3">To uphold proper ESG integration and investment policies, avoid investing in:
+                </p>
+                <ul>
+                  <li>Thermal Coal: Companies generating more than 25% of revenue from thermal coal</li>
+                  <li>Controversial Weapons: Manufacturers of cluster munitions, anti-personnel mines, biological, or
+                    chemical weapons</li>
+                </ul>
               </div>
             </div>
-        </div>          
-        <button type="button" class="btn gray-btn mb-1 mt-5" [routerLink]="''">Back</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <footer class="text-center d-flex flex-column footer">
-        <i>🌱</i>
-        <i>© 2024 EcoEquity</i>
-    </footer>
+    <button type="button" class="btn gray-btn mb-1 mt-5" [routerLink]="''">Back</button>
+  </div>
+  <footer class="text-center d-flex flex-column footer">
+    <i>🌱</i>
+    <i>© 2024 Green Invest</i>
+  </footer>
 </div>

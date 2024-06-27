@@ -1,0 +1,23 @@
+.card{
+    width: 25rem;
+}
+
+.maindiv{
+    margin-bottom: 5rem;
+}
+
+.svg-image {
+    max-width: 50px !important; /* Adjust maximum width as needed */
+    max-height: 50px !important; /* Adjust maximum height as needed */
+    vertical-align: middle !important; /* Align SVG vertically with text */
+}
+
+.dollar-amount {
+    font-size: 1.2rem !important; /* Adjust font size for dollar amount */
+    font-weight: bold !important; /* Ensure dollar amount text is bold */
+    margin-bottom: 0 !important; /* Remove default margin */
+}
+
+.margin-left {
+    margin-left: 6rem;
+}
