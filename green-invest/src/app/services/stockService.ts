@@ -29,7 +29,7 @@ export class StockService {
     private SUSTAIN_KEY: string = 'sustainability'
     private LEADERBOARD_KEY: string = 'leaderboard'
     private user_stocks: UserStock[] = [];
-    private user_spending: number = 20000;
+    private user_spending: number = 100000;
     private user_sus: string = 'N/A';
     private user_port: number = 0;
     private stockData: StockDictionary = {}
@@ -327,7 +327,8 @@ export class StockService {
             if (stockDict.hasOwnProperty(stockName)) {
                 const [sustainabilityGrade, numberOfShares] = stockDict[stockName];
                 // Calculate score contribution based on sustainability grade 
-                let gradeScore = 0; switch (sustainabilityGrade) {
+                let gradeScore = 0;
+                switch (sustainabilityGrade) {
                     case 'A+': gradeScore = 10;
                         break;
                     case 'A': gradeScore = 8;
@@ -415,10 +416,33 @@ export class StockService {
         this.setLeaderboardList(leaderboard);
     }
 
-    // return 
+    // return top of leaderboard
     public getLeaderboard(limit: number = 8): [string, number][] {
         const leaderboard = this.getLeaderboardList();
         return leaderboard.sort((a, b) => b[1] - a[1]).slice(0, limit);
+    }
+
+    public getFinalScore(): number {
+        let money = this.user_port;
+        let sus_score = this.user_sus;
+        let result = money / 100000;
+        switch (sus_score) {
+            case 'A+': result *= 1.3;
+                break;
+            case 'A': result *= 1.1;
+                break;
+            case 'B': result *= 1;
+                break;
+            case 'C': result *= 0.95;
+                break;
+            case 'D': result *= 0.75;
+                break;
+            case 'F': result *= 0.5;
+                break;
+            default: result *= 1; // Default score for unrecognized grades 
+                break;
+        }
+        return (Math.round(result));
     }
 
     // replay
@@ -426,7 +450,7 @@ export class StockService {
         localStorage.clear;
         this.init()
         this.user_stocks = [];
-        this.user_spending = 20000;
+        this.user_spending = 100000;
         this.WEEK = 0;
     }
 
