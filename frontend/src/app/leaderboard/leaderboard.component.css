@@ -1,0 +1,56 @@
+.gray-btn {
+    background-color: #6c757d;
+    color: white;
+    width: 20rem;
+    border: none;
+    padding: 10px 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+.gray-btn:hover {
+    background-color: #495057;
+}
+
+
+.table-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .table {
+      width: 50rem;
+      padding: 15px 0 10px 0;
+    }
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f8f9fa; /* Light gray background for header */
+  color: #495057; /* Dark gray text color */
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f3f4f6; /* Alternate row background color */
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef; /* Hover background color */
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd; /* Light gray border */
+}

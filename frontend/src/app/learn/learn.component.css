@@ -1,0 +1,93 @@
+.gray-btn {
+    background-color: #6c757d;
+    color: white;
+    width: 20rem;
+    border: none;
+    padding: 10px 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+.gray-btn:hover {
+    background-color: #495057;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 auto;
+    display: block;
+}
+
+.nav-tabs {
+  margin-bottom: 20px; /* Space between tabs and content */
+}
+
+.nav-link {
+  cursor: pointer; /* Pointer cursor on tab links */
+}
+
+.tab-content {
+  padding: 20px; /* Padding inside tab content */
+}
+
+.tab-pane.show {
+  display: block; /* Show active tab content */
+}
+
+.learn-div {
+  display: block;
+  text-align: center;
+  align-items: center;
+}
+
+.sm {
+  padding: 0.3rem 0.75rem !important; /* Reduced padding for smaller tabs */
+  font-size: 0.75rem; /* Smaller font size for tabs */
+}
+
+.tab-pane ul,
+.tab-pane ol {
+  padding-left: 20px; /* Adjust list padding */
+}
+
+.tab-pane ul li,
+.tab-pane ol li {
+  margin-bottom: 10px; /* Adjust list item margin */
+}
+
+.nav-tabs {
+    margin-bottom: 0 !important;
+}
+
+.centered {
+  text-align: center;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .centered {
+    margin-left: 5px; /* Margin for mobile screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-tabs {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    flex: 1 1 auto;
+    margin-bottom: 5px; /* Add spacing between items */
+  }
+}
+
+@media (min-width: 768px) {
+
+  .padding-3 {
+    padding: 0 10rem 0 10rem;
+}
+}

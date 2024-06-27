@@ -1,0 +1,24 @@
+<div class="container">
+    <header class="text-center">
+        <img src="assets/images/logo_transparent.png" alt="EcoEquity Logo" class="logo">
+        <h1 class="header-one">EcoEquity</h1>
+        <p>Simulated Investments, Real Impact.</p>
+    </header>
+    <div class="d-flex flex-column align-items-center text-center mt-5">
+        <button type="button" class="btn green-btn mb-3" [routerLink]="'/invest'">📈 Invest</button>
+        <button type="button" class="btn green-btn mb-3" [routerLink]="'/learn'">📚 Learn</button>
+        <button type="button" class="btn green-btn mb-1" [routerLink]="'/leaderboard'">📋 Leaderboard</button>
+    </div>
+    <div class="text-center">
+        <div *ngIf="currentQuote !== null" class="quote-container mt-5">
+            <blockquote class="blockquote text-center">
+              <i class="mb-0">"{{ currentQuote.quote }}"</i>
+              <footer class="blockquote-footer mt-2">{{ currentQuote.author }}</footer>
+            </blockquote>
+        </div>
+    </div>
+    <footer class="text-center d-flex flex-column footer">
+        <i>🌱</i>
+        <i>© 2024 EcoEquity</i>
+    </footer>
+</div>

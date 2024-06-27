@@ -1,0 +1,31 @@
+<div class="container">
+    <header class="text-center">
+        <img src="assets/images/logo_transparent.png" alt="EcoEquity Logo" class="logo">
+        <h1 class="header-one mt-2">📋 Leaderboard</h1>
+    </header>
+    <div class="d-flex flex-column text-center mt-2">
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let entry of leaderboardData">
+                    <th scope="row">{{ entry.rank }}</th>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.score }}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" class="btn gray-btn mb-1" [routerLink]="''">Back</button>
+    </div>
+    <footer class="text-center d-flex flex-column footer">
+        <i>🌱</i>
+        <i>© 2024 EcoEquity</i>
+    </footer>
+</div>
