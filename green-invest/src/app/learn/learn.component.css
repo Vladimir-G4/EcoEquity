@@ -1,24 +1,29 @@
 .tab-container {
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  margin: 0.5em;
 }
 
 
 .tab-buttons {
-  overflow: hidden;
-  background-color: #f1f1f1;
+  /* overflow: hidden; */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* Center-align items horizontally */
+  align-items: center;
 }
 
 
 .tab-button {
-  background-color: inherit;
-  float: left;
+  background-color: #f1f1f1;
+  float: center;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+  margin: 0.5em;
 }
 
 
@@ -49,4 +54,29 @@
 
 .green-btn:hover {
   background-color: #8E9A5C;
+}
+
+.blue-btn {
+  background-color: #708090;
+  color: #eeeeee;
+}
+
+.blue-btn:hover {
+  background-color: #51626d;
+}
+
+a {
+  color: #eeeeee;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+h1 {
+  color: #6C584C;
+  margin: 0.5em;
+}
+
+h3 {
+  color: #A98467;
+  margin-bottom: 0.75em;
 }

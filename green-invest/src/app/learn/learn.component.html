@@ -10,9 +10,10 @@
       <button class="tab-button" (click)="openTab('Tab4')">Sustainable Investments</button>
       <button class="tab-button" (click)="openTab('Tab5')">Investment Restrictions</button>
     </div>
+    <br>
     <div class="tab">
-      <div id="Tab1" class="tab-content" ng-class="{'active': activeTab === 'Tab1'}">
-        <h2>Learning Overview</h2>
+      <div id="Tab1" class="tab-content" [ngClass]="{'active': activeTab === 'Tab1'}">
+        <h3>Learning Overview</h3>
         <p>Hello Green Investor! If you want to learn about Prudential's Responsible Investing Policy
           before diving into
           investing, you've come to the right place!
@@ -20,9 +21,10 @@
           Restrictions to discover and review key ideas. If you wish to explore Prudential's Investing policies further,
           please refer to the following link:
         </p>
-        <a href="https://www.prudentialesg.com/sustainability/default.aspx" target="_blank">More Information</a>
+        <a href="https://www.prudentialesg.com/sustainability/default.aspx" target="_blank"><button
+            class="btn blue-btn">More Information</button></a>
       </div>
-      <div id="Tab2" class="tab-content" style="display:none;" ng-class="{'active': activeTab === 'Tab2'}">
+      <div id="Tab2" class="tab-content" [ngClass]="{'active': activeTab === 'Tab2'}">
         <h2>Investing Basics</h2>
         <p>The key is to buy low and sell high! Try to buy stocks that, based on trends displayed in graphs, you expect
           will go up in price after you buy them.
@@ -34,7 +36,7 @@
           tab.
         </p>
       </div>
-      <div id="Tab3" class="tab-content" style="display:none;" ng-class="{'active': activeTab === 'Tab3'}">
+      <div id="Tab3" class="tab-content" [ngClass]="{'active': activeTab === 'Tab3'}">
         <h2>ESG Integration</h2>
         <p>ESG stands for Environmental, Social, and Governance. Environmental refers to mitigating climate change and
           harm
@@ -47,7 +49,7 @@
           factors to be vital.
         </p>
       </div>
-      <div id="Tab4" class="tab-content" style="display:none;" ng-class="{'active': activeTab === 'Tab4'}">
+      <div id="Tab4" class="tab-content" [ngClass]="{'active': activeTab === 'Tab4'}">
         <h2>Sustainable Investments</h2>
         <p>Here are the types of sustainable investments, as well as examples of each type:</p>
         <ol>
@@ -58,7 +60,7 @@
             security and sustainable food systems, employment generation.</li>
         </ol>
       </div>
-      <div id="Tab5" class="tab-content" style="display:none;" ng-class="{'active': activeTab === 'Tab5'}">
+      <div id="Tab5" class="tab-content" [ngClass]="{'active': activeTab === 'Tab5'}">
         <h2>Sustainable Investments</h2>
         <p>In order to protect and further Prudential's ESG integration and investment policies, please refrain from
           investing in the following areas:</p>
