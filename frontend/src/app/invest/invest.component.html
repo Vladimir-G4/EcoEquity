@@ -28,40 +28,42 @@
 
 
         <div class="d-flex flex-column align-items-center text-center mt-2">
-            <div class="card raised-box">
+            <div class="card raised-box mt-4">
                 <div class="card-body">
-                    <h5 class="card-title">Green Energy Solutions Inc.</h5>
-                    <p>GESI</p>
-                    <i class="mt-1">Renewable Energy</i>
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <p class="mb-0">$42.50</p>
-                        </div>
-                        <div class="col">
-                            <p class="text-success mb-0">+1.20 (+2.90%)</p>
+                    <div class="row text-center">
+                        <!-- Display current stock details -->
+                        <div class="col-12">
+                            <h5 class="card-title">{{ stocks[currentStockIndex].name }}</h5>
+                            <p>{{ stocks[currentStockIndex].ticker }}</p>
+                            <i class="mt-1">{{ stocks[currentStockIndex].esg }}</i>
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <p class="mb-0">${{ stocks[currentStockIndex].price }}</p>
+                                </div>
+                                <div class="col">
+                                    <p class="text-success mb-0">{{ stocks[currentStockIndex].performance }}</p>
+                                </div>
+                            </div>
+                            <p class="card-text mt-2">{{ stocks[currentStockIndex].desc }}</p>
                         </div>
                     </div>
-                    <p class="card-text mt-2">Green Energy Solutions Inc. focuses on providing sustainable energy
-                        solutions
-                        globally, aiming to reduce carbon emissions.</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-danger btn-circle" (click)="skipStock()">Skip</button>
+                    </div>
+                    <div class="col">
+                        <app-buy-modal></app-buy-modal>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <button type="button" class="btn btn-danger btn-circle">Skip</button>
-                </div>
-                <div class="col">
-                    <app-buy-modal></app-buy-modal>
-                </div>
+            <div class="d-flex flex-column align-items-center text-center mt-5 maindiv">
+                <button type="button" class="btn green-btn mb-3" [routerLink]="'/invest'">⏳ Next Week</button>
+                <button type="button" class="btn green-btn mb-3" [routerLink]="'/end-game'">👾 End Game</button>
             </div>
         </div>
-        <div class="d-flex flex-column align-items-center text-center mt-5 maindiv">
-            <button type="button" class="btn green-btn mb-3" [routerLink]="'/invest'">⏳ Next Week</button>
-            <button type="button" class="btn green-btn mb-3" [routerLink]="'/end-game'">👾 End Game</button>
-        </div>
+        <footer class="text-center d-flex flex-column footer">
+            <i>🌱</i>
+            <i>© 2024 Green Invest</i>
+        </footer>
     </div>
-    <footer class="text-center d-flex flex-column footer">
-        <i>🌱</i>
-        <i>© 2024 Green Invest</i>
-    </footer>
-</div>
