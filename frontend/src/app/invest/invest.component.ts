@@ -82,12 +82,16 @@ export class InvestComponent {
       industry: 'Automotive'
     }
   ];
-
+  public week = 1;
   public currentStockIndex: number = 0;
 
   constructor() { }
 
   skipStock() {
     this.currentStockIndex = (this.currentStockIndex + 1) % this.stocks.length;
+  }
+
+  advanceWeek() {
+    this.week++;
   }
 }
